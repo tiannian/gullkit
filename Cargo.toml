@@ -1,0 +1,26 @@
+[workspace]
+members = [
+    "input/tun",
+    "input/http",
+    # "input/dhcpv4",
+    # "input/dhcpv6",
+    # "input/dns",
+    # "input/socks5",
+    #
+    # "output/torjan",
+    # "output/http",
+    # "output/filesystem",
+    # "output/dynamic",
+    # "output/dns",
+    # "output/dhcp",
+
+    "core",
+    "graph",
+
+    "toolbox",
+]
+
+[workspace.dependencies]
+gull-core = { version = "0.1", path = "core" }
+
+
