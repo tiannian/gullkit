@@ -1,4 +1,6 @@
 # Gull Toolkit
 
-Graph based toolkit for network.
+Graph based dynamic toolkit for network.
+
+
 
