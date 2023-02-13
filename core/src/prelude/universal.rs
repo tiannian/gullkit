@@ -1,6 +1,4 @@
-use std::net::SocketAddr;
-
-use crate::{PayloadRef, Protocol, Target};
+use crate::{Endpoint, PayloadRef, Protocol};
 
 pub trait UniversalMessage {
     type OptionIter<'a>: Iterator<Item = (&'a [u8], &'a [u8])>
@@ -11,9 +9,9 @@ pub trait UniversalMessage {
 
     fn version(&self) -> u8;
 
-    fn from(&self) -> SocketAddr;
+    fn from(&self) -> Endpoint;
 
-    fn to(&self) -> Target;
+    fn to(&self) -> Endpoint;
 
     fn protocol(&self) -> Protocol;
 
@@ -31,21 +29,21 @@ pub trait UniversalMessageMut: UniversalMessage {
     where
         Self: 'a;
 
-    fn set_magic(&self, magic: &[u8; 32]);
+    fn set_magic(&mut self, magic: &[u8; 32]);
 
-    fn set_version(&self, version: u8);
+    fn set_version(&mut self, version: u8);
 
-    fn set_from(&self, from: SocketAddr);
+    fn set_from(&mut self, from: Endpoint);
 
-    fn set_to(&self, to: Target);
+    fn set_to(&mut self, to: Endpoint);
 
-    fn set_code(&self, code: u8);
+    fn set_code(&mut self, code: u8);
 
-    fn set_protocol(&self, protocol: Protocol);
+    fn set_protocol(&mut self, protocol: Protocol);
 
-    fn path_mut(&self) -> &mut [u8];
+    fn path_mut(&mut self) -> &mut [u8];
 
-    fn options_mut(&self) -> Self::OptionIterMut<'_>;
+    fn options_mut(&mut self) -> Self::OptionIterMut<'_>;
 
-    fn payload_mut(&self, payload: PayloadRef);
+    fn payload_mut(&mut self, payload: PayloadRef);
 }

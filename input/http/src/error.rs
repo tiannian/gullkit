@@ -6,6 +6,9 @@ pub enum Error {
     OpensslErrorStack(#[from] openssl::error::ErrorStack),
 
     #[error(transparent)]
+    OpensslError(#[from] openssl::ssl::Error),
+
+    #[error(transparent)]
     StdIoError(#[from] std::io::Error),
 }
 

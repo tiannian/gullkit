@@ -1,4 +1,4 @@
-use std::{net::SocketAddr, path::PathBuf};
+use std::net::SocketAddr;
 
 pub struct Config {
     pub listen_addr: SocketAddr,
@@ -8,6 +8,6 @@ pub struct Config {
 
 pub struct TlsConfig {
     pub sni: String,
-    pub private_key_file: PathBuf,
-    pub certificate_file: PathBuf,
+    pub private_key: String,
+    pub certificate: String,
 }
