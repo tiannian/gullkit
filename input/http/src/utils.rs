@@ -14,7 +14,7 @@ pub fn set_context_builder(builder: &mut SslContextBuilder, pkey: &str, cert: &s
 
     let cert = X509::from_pem(cert.as_bytes())?;
     builder.set_certificate(&cert)?;
-    builder.set_min_proto_version(Some(SslVersion::TLS1))?;
+    // builder.set_min_proto_version(Some(SslVersion::TLS1))?;
 
     Ok(())
 }

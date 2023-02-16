@@ -10,6 +10,9 @@ pub enum Error {
 
     #[error(transparent)]
     StdIoError(#[from] std::io::Error),
+
+    #[error(transparent)]
+    HyperError(#[from] hyper::Error),
 }
 
 pub type Result<T> = std::result::Result<T, Error>;

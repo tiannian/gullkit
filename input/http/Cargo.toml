@@ -9,11 +9,11 @@ edition = "2021"
 gull-core = { workspace = true }
 
 thiserror = "1.0.38"
-openssl = "0.10.45"
+openssl = { version = "0.10.45", features = ["vendored"] }
 tokio-openssl = "0.6.3"
 log = "0.4.17"
 tokio = { version = "1.25.0", features = ["net", "rt"] }
-hyper = { version = "0.14.24", features = ["http1", "http2", "server"] }
+hyper = { version = "0.14.24", features = ["http1", "http2", "server", "tcp"] }
 
 [dev-dependencies]
 env_logger = "0.10.0"
