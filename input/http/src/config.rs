@@ -29,5 +29,5 @@ impl Config {
 pub struct TlsConfig {
     pub sni: String,
     pub private_key: String,
-    pub certificate: String,
+    pub certificate: Vec<String>,
 }

@@ -3,10 +3,10 @@ use gull_http::{Config, HttpInput, TlsConfig};
 #[tokio::main]
 async fn main() {
     env_logger::init();
-    openssl::init();
+    // openssl::init();
 
     let tls1 = TlsConfig {
-        certificate: include_str!("cert.pem.a").to_string(),
+        certificate: vec![include_str!("cert.pem.a").to_string()],
         private_key: include_str!("key.pem.a").to_string(),
         sni: String::from("a.gulltoolkit.io"),
     };

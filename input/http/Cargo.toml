@@ -9,12 +9,21 @@ edition = "2021"
 gull-core = { workspace = true }
 
 thiserror = "1.0.38"
-openssl = { version = "0.10.45", features = ["vendored"] }
-tokio-openssl = "0.6.3"
+openssl = { version = "0.10.45", features = ["vendored"], optional = true }
+tokio-openssl = { version = "0.6.3", optional = true }
 log = "0.4.17"
 tokio = { version = "1.25.0", features = ["net", "rt"] }
 hyper = { version = "0.14.24", features = ["http1", "http2", "server", "tcp"] }
+tokio-rustls = { version = "0.23.4", optional = true }
+rustls = { version = "0.20.8", optional = true }
+rustls-pemfile = { version = "1.0.2", optional = true }
 
 [dev-dependencies]
 env_logger = "0.10.0"
 tokio = { version = "1.25.0", features = ["rt", "macros", "rt-multi-thread"] }
+
+[features]
+default = ["rustls-tls"]
+rustls-tls = ["rustls", "tokio-rustls", "rustls-pemfile"]
+openssl-tls = ["openssl", "tokio-openssl"]
+
