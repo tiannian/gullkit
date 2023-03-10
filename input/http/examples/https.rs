@@ -6,9 +6,9 @@ async fn main() {
     // openssl::init();
 
     let tls1 = TlsConfig {
-        certificate: vec![include_str!("cert.pem.a").to_string()],
-        private_key: include_str!("key.pem.a").to_string(),
-        sni: String::from("a.gulltoolkit.io"),
+        certificate: vec![include_str!("end.fullchain").to_string()],
+        private_key: include_str!("end.key").to_string(),
+        sni: String::from("testserver.com"),
     };
 
     // let tls2 = TlsConfig {

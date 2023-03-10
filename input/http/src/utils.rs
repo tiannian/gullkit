@@ -49,7 +49,7 @@ pub mod openssl_utils {
 pub fn http1_alpn() -> Vec<u8> {
     let mut alpn = Vec::with_capacity(9);
 
-    alpn.push(8);
+    // alpn.push(8);
     alpn.extend_from_slice(b"http/1.1");
 
     alpn
@@ -58,7 +58,7 @@ pub fn http1_alpn() -> Vec<u8> {
 pub fn http2_alpn() -> Vec<u8> {
     let mut alpn = Vec::with_capacity(3);
 
-    alpn.push(2);
+    // alpn.push(2);
     alpn.extend_from_slice(b"h2");
 
     alpn

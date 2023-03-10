@@ -131,9 +131,10 @@ impl<Graph> HttpInput<Graph> {
 
             let ck = CertifiedKey::new(certs, key);
 
-            println!("asdsdsadsdsadasdas");
-            cert_resolver.add(&tls.sni, ck)?;
-            println!("asdsdsadsdsadasdas");
+            let sni = &tls.sni;
+            log::info!("Add SNI: {sni}");
+
+            cert_resolver.add(sni, ck)?;
         }
 
         let mut builder = ServerConfig::builder()
@@ -247,7 +248,7 @@ where
 
         tokio::spawn(async move {
             if let Err(e) = _handle(stream, graph).await {
-                log::error!("Handle stream error: {e:?}");
+                log::error!("Handle stream error: {e}");
             }
         });
     }
