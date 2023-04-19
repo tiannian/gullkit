@@ -1,4 +1,4 @@
-# Gull Toolkit
+# Gulltk
 
 Graph based dynamic toolkit for network.
 
