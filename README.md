@@ -4,7 +4,29 @@ A ultimate network and protocol toolkit based on dynamic graph.
 
 ## Usage
 
+### Daemon
+
+Run on terminal directly.
+
+```shell
+$ gullkitd
+```
+
+Or as systemd service
+
+```shell
+# systemctl enable --now gullkitd.service
+```
+
 ## Controller Command
+
+### Expose a path
+
+```shell
+$ gullkit path httpserve .
+```
+
+## Configure
 
 ## Controller API
 
