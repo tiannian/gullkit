@@ -14,7 +14,7 @@ $ gullkitd
 
 Or as systemd service
 
-```shell
+```bash
 # systemctl enable --now gullkitd.service
 ```
 
@@ -22,7 +22,7 @@ Or as systemd service
 
 ### Expose a path
 
-```shell
+```bash
 $ gullkit path httpserve .
 ```
 
