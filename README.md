@@ -42,6 +42,7 @@ $ gullkit path httpserve .
 - Http proxy
 - Socks5
 - Trojan
+- Jsonrpc
 
 ### Output
 
@@ -55,4 +56,5 @@ $ gullkit path httpserve .
 - Trojan
 - uwsgi
 - Dbus
+- Jsonrpc
 
