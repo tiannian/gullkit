@@ -1,23 +1,27 @@
-use crate::{Endpoint, PayloadRef, Protocol};
+use crate::{Endpoint, PayloadRef, Protocol, Result, UniversalMessageType};
 
 pub trait UniversalMessage {
     type OptionIter<'a>: Iterator<Item = (&'a [u8], &'a [u8])>
     where
         Self: 'a;
 
-    fn magic(&self) -> &[u8; 4];
+    fn magic(&self) -> Result<[u8; 4]>;
 
-    fn version(&self) -> u8;
+    fn version(&self) -> Result<u8>;
 
-    fn from(&self) -> Endpoint;
+    fn ty(&self) -> Result<UniversalMessageType>;
 
-    fn to(&self) -> Endpoint;
+    fn from_addr(&self) -> Result<Endpoint>;
 
-    fn protocol(&self) -> Protocol;
+    fn to_addr(&self) -> Result<Endpoint>;
 
-    fn code(&self) -> u8;
+    fn connection_id(&self) -> Result<[u8; 32]>;
 
-    fn path(&self) -> &[u8];
+    fn protocol(&self) -> Result<Protocol>;
+
+    fn code(&self) -> Result<u8>;
+
+    fn path(&self) -> Result<&[u8]>;
 
     fn options(&self) -> Self::OptionIter<'_>;
 

@@ -1,5 +1,5 @@
 [package]
-name = "gull-tun"
+name = "gullkit-tun"
 version = "0.1.0"
 edition = "2021"
 

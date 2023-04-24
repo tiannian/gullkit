@@ -1,12 +1,12 @@
 [package]
-name = "gull-http"
+name = "gullkit-http"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-gull-core = { workspace = true }
+gullkit-core = { workspace = true }
 
 thiserror = "1.0.38"
 openssl = { version = "0.10.45", features = ["vendored"], optional = true }

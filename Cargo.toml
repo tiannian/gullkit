@@ -21,6 +21,6 @@ members = [
 ]
 
 [workspace.dependencies]
-gull-core = { version = "0.1", path = "core" }
+gullkit-core = { version = "0.1", path = "core" }
 
 
