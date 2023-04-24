@@ -11,15 +11,15 @@ pub trait UniversalMessage {
 
     fn ty(&self) -> Result<UniversalMessageType>;
 
-    fn from_addr(&self) -> Result<Endpoint>;
-
-    fn to_addr(&self) -> Result<Endpoint>;
-
     fn connection_id(&self) -> Result<[u8; 32]>;
 
     fn protocol(&self) -> Result<Protocol>;
 
-    fn code(&self) -> Result<u8>;
+    fn code(&self) -> Result<u32>;
+
+    fn from_addr(&self) -> Result<Endpoint>;
+
+    fn to_addr(&self) -> Result<Endpoint>;
 
     fn path(&self) -> Result<&[u8]>;
 

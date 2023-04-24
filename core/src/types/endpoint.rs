@@ -46,13 +46,11 @@ impl<'a> Endpoint<'a> {
             0x40 => {
                 let length = *data.get(0).ok_or(Error::WrongBytesIndex(0))? as usize;
 
-                let a = data
-                    .get(length)
-                    .ok_or(Error::WrongBytesIndex(length as u8))?;
+                let a = data.get(length).ok_or(Error::WrongBytesIndex(length))?;
                 let lengthoff = length + 1;
                 let b = data
                     .get(lengthoff)
-                    .ok_or(Error::WrongBytesIndex(lengthoff as u8))?;
+                    .ok_or(Error::WrongBytesIndex(lengthoff))?;
 
                 let port = u16::from_be_bytes([*a, *b]);
 
